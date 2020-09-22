@@ -9,7 +9,7 @@ import { Tab } from '../models/tab';
 export class TabContentComponent implements OnInit {
 
   @Input() tabData: Tab;
-  @Output() gotoTab = new EventEmitter<string>();
+  @Output() selectedTab = new EventEmitter<string>();
 
   constructor() { }
 
@@ -18,6 +18,6 @@ export class TabContentComponent implements OnInit {
 
   print(text: string): void {
     console.log(text);
-    this.gotoTab.emit(text);
+    this.selectedTab.emit(text);
   }
 }
