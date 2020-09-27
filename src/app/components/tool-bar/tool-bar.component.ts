@@ -1,6 +1,6 @@
-import { Action } from '../../models/actions';
 import { Component, Input, OnInit } from '@angular/core';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { Action } from '../../models/actions';
 
 @Component({
   selector: 'app-tool-bar',

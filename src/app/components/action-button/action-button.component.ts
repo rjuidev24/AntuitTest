@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { STATUS } from 'src/app/enums/status.enum';
 import { Action } from '../../models/actions';
 
@@ -7,13 +7,11 @@ import { Action } from '../../models/actions';
   templateUrl: './action-button.component.html',
   styleUrls: ['./action-button.component.scss']
 })
-export class ActionButtonComponent implements OnInit {
+export class ActionButtonComponent {
   @Input() action: Action;
   customClass: string;
-  constructor() { }
 
-  ngOnInit(): void {
-  }
+  constructor() { }
 
   cycleStyle(cycle: string): void {
     if (cycle === 'y') {

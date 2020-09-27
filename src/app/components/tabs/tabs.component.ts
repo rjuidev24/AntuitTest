@@ -1,9 +1,10 @@
-import { Action, IAction } from './../../models/actions';
-import { Component, OnInit } from '@angular/core';
-import { BackendService } from './../../services/backend.service';
-import { Tab } from './../../models/tab';
-import { map, take } from 'rxjs/operators';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
+import { TabsetComponent } from 'ngx-bootstrap/tabs';
+import { finalize, map, take } from 'rxjs/operators';
+import { Action, IAction } from './../../models/actions';
+import { Tab } from './../../models/tab';
+import { BackendService } from './../../services/backend.service';
 
 @Component({
   selector: 'app-tabs',
@@ -12,8 +13,11 @@ import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
   providers: [{ provide: BsDropdownConfig, useValue: { isAnimated: true, autoClose: true } }]
 })
 export class TabsComponent implements OnInit {
+  @ViewChild('dynamicTabs', { static: false }) staticTabs: TabsetComponent;
 
   tabs$;
+  states$;
+  statesPopulated = false;
   messages: string[];
   actions: Action[];
   constructor(private httpService: BackendService) { }
@@ -31,7 +35,22 @@ export class TabsComponent implements OnInit {
       ).subscribe(actions => this.actions = actions);
   }
 
-  goToTab(title: string): void {
-    console.log('Select Tab' + title);
+  selectTab(tabNo: number): void {
+    this.staticTabs.tabs[tabNo].active = true;
+  }
+
+  onOpenChange(isOpen: boolean): void {
+    if (isOpen && !this.statesPopulated) {
+      this.states$ = this.httpService.get('assets/states.json')
+        .pipe(map((data: any) => {
+          const keyValues = [];
+          // tslint:disable-next-line: forin
+          for ( const k in data ) {
+            keyValues.push({ key: k, value: data[k] });
+          }
+          return keyValues;
+        }),
+        finalize(() => this.statesPopulated = true));
+    }
   }
 }

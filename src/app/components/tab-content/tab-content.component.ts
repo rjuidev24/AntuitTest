@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Tab } from '../../models/tab';
 
 @Component({
@@ -6,13 +6,10 @@ import { Tab } from '../../models/tab';
   templateUrl: './tab-content.component.html',
   styleUrls: ['./tab-content.component.scss']
 })
-export class TabContentComponent implements OnInit {
+export class TabContentComponent {
 
   @Input() tabData: Tab;
-  @Output() selectedTab = new EventEmitter<string>();
+  @Output() routeTo = new EventEmitter<number>();
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 }

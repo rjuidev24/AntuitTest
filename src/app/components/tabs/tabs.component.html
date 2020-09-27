@@ -1,22 +1,20 @@
-<!-- <div class="btn-group" dropdown>
-  <button id="button-animated" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
-          aria-controls="dropdown-animated">
-    Button dropdown <span class="caret"></span>
-  </button>
-  <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu"
-      role="menu" aria-labelledby="button-animated">
-    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
-    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a>
-    </li>
-    <li role="menuitem"><a class="dropdown-item" href="#">Something else
-      here</a></li>
-  </ul>
-</div> -->
-<tabset>
-  <tab *ngFor="let tab of tabs$ | async; let i = index; let l = last" [heading]="tab.title" (gotoTab)="goToTab($event)">
-    <app-tab-content [tabData]="tab">
+<div fxLayout="row" fxLayoutAlign="end center" class="padding-right-30">
+  <div class="btn-group" dropdown (isOpenChange)="onOpenChange($event)">
+    <button type="button" class="btn btn-primary">Select State</button>
+    <button id="button-animated" dropdownToggle type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" aria-controls="dropdown-split">
+      <span class="caret"></span>
+      <span class="sr-only">Select State</span>
+    </button>
+    <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-menu-left"
+        role="menu" aria-labelledby="button-animated">
+      <li role="menuitem" *ngFor="let state of states$ | async"><a class="dropdown-item" [href]="state.key">{{ state.value }}</a></li>
+    </ul>
+  </div>
+</div>
+<tabset #dynamicTabs>
+  <tab *ngFor="let tab of tabs$ | async; let i = index; let l = last" [heading]="tab.title">
+    <app-tab-content [tabData]="tab" (routeTo)="selectTab($event)">
       <app-tool-bar [messages]="messages" [actions]="actions"></app-tool-bar>
     </app-tab-content>
   </tab>
 </tabset>
-

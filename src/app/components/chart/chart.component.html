@@ -1,7 +1,8 @@
 <echarts [initOpts]="initOpts" [options]="options" class="demo-chart"></echarts>
 <ul>
-  <li> Total: {{ summary.total }} </li>
-  <li> Average: {{ summary.average.toFixed(2) }} </li>
-  <li> Double: {{ summary.double }} </li>
-  <li> Count of Balance between 10 and 20: {{ summary.count }} </li>
+  <li> Demostrate use of <i>map, reduce, filter</i> methods of Array</li>
+  <li> Sum: {{ summary.total }} -> Derived using <i>reduce</i> method of Array</li>
+  <li> Average: {{ summary.average.toFixed(2) }}</li>
+  <li> Double: {{ summary.double }} -> Derived using <i>map</i> chained with <i>reduce</i> method of Array</li>
+  <li> Count of Balance between 10 and 20: {{ summary.count }} -> Derived using <i>filter</i> method of Array</li>
 </ul>
