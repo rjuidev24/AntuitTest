@@ -1,0 +1,18 @@
+<div class="toolbar" fxFlex="row" fxLayoutAlign="space-between center">
+  <div fxFlex="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+    <div fxLayout="row" fxLayoutGap="10px">
+      <button [disabled]="currentMsg === 0" (click)="currentMsg = currentMsg - 1"><fa-icon [icon]="faArrowLeft"></fa-icon></button>
+        <div>{{ currentMsg + 1 }}/{{ messages.length }}</div>
+      <button [disabled]="(currentMsg === messages.length - 1)" (click)="currentMsg = currentMsg + 1"><fa-icon [icon]="faArrowRight"></fa-icon></button>
+    </div>
+    <div>
+      {{ messages[currentMsg] }}
+    </div>
+  </div>
+  <div>
+    <div class="pad-buttons" fxFlex="row" *ngFor="let action of actions; let last = last; let first = first">
+      <app-action-button [action]="action"></app-action-button>
+      <div class="divider" *ngIf="!(first || last)"></div>
+    </div>
+  </div>
+</div>

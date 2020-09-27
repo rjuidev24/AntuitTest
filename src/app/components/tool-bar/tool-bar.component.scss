@@ -1,0 +1,17 @@
+button {
+  border: 0;
+  background-color: white;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: auto;
+  }
+}
+
+.toolbar {
+  height: 4rem;
+}
+
+.pad-buttons {
+  padding: 10px;
+}

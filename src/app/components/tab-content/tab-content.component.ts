@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Tab } from '../models/tab';
+import { Tab } from '../../models/tab';
 
 @Component({
   selector: 'app-tab-content',
@@ -14,10 +14,5 @@ export class TabContentComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  print(text: string): void {
-    console.log(text);
-    this.selectedTab.emit(text);
   }
 }

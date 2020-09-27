@@ -1,0 +1,22 @@
+<!-- <div class="btn-group" dropdown>
+  <button id="button-animated" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+          aria-controls="dropdown-animated">
+    Button dropdown <span class="caret"></span>
+  </button>
+  <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu"
+      role="menu" aria-labelledby="button-animated">
+    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a>
+    </li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Something else
+      here</a></li>
+  </ul>
+</div> -->
+<tabset>
+  <tab *ngFor="let tab of tabs$ | async; let i = index; let l = last" [heading]="tab.title" (gotoTab)="goToTab($event)">
+    <app-tab-content [tabData]="tab">
+      <app-tool-bar [messages]="messages" [actions]="actions"></app-tool-bar>
+    </app-tab-content>
+  </tab>
+</tabset>
+

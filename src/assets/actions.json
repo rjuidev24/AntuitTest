@@ -1,0 +1,30 @@
+{
+  "actions": [
+    {
+      "name": "status",
+      "status": 1,
+      "icon": "heartbeat"
+    },
+    {
+      "name": "share",
+      "status": 1,
+      "icon": "share"
+    },
+    {
+      "name": "filter",
+      "status": 1,
+      "icon": "filter"
+    },
+    {
+      "name": "calendar",
+      "status": 1,
+      "icon": "calendar"
+    },
+    {
+      "name": "data",
+      "status": 1,
+      "cycle": "n",
+      "icons": ["download", "upload", "sync"]
+    }
+  ]
+}

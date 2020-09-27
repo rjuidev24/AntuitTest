@@ -1,0 +1,30 @@
+{
+  "activities": [
+    {
+      "activity": "status",
+      "status": 1,
+      "icon": "heartbeat"
+    },
+    {
+      "activity": "share",
+      "status": 1,
+      "icon": "faShareAlt"
+    },
+    {
+      "activity": "filter",
+      "status": 1,
+      "icon": "faFilter"
+    },
+    {
+      "activity": "calendar",
+      "status": 1,
+      "icon": "faCalendar"
+    },
+    {
+      "activity": "data",
+      "status": 1,
+      "cycle": "nß",
+      "icons": ["faDownload", "faUpload", "faSyncAlt"]
+    }
+  ]
+}

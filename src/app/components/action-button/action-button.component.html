@@ -1,0 +1,9 @@
+<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="5px">
+  <div class="title">{{ action.name }}</div>
+  <ng-template #icons>
+    <div fxLayout="row">
+      <div (click)="cycleStyle(action?.cycle)" *ngFor="let icon of action?.icons"><fa-icon [icon]="icon"></fa-icon></div>
+    </div>
+  </ng-template>
+  <div (click)="cycleStyle(action?.cycle)" *ngIf="action?.icon; else icons"><fa-icon [icon]="action.icon" [class]="customClass"></fa-icon></div>
+</div>

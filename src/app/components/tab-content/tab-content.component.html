@@ -3,8 +3,9 @@
   <li>{{ tabData.title }} Selected</li>
   <li *ngFor="let item of tabData.contents; let i = index">
     <span *ngIf="item.type === 'text'">{{ item.value }}</span>
-    <button *ngIf="item.type === 'button' && item.config.action === 'route'" (click)="print(item.config.to)">
+    <button *ngIf="item.type === 'button' && item.config.action === 'route'">
       {{ item.value }}
     </button>
+    <app-chart *ngIf="item.type === 'chart'" [data]="item.data"></app-chart>
   </li>
 </ul>

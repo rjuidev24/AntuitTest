@@ -8,6 +8,7 @@ export interface Tab {
 export interface Content {
   type:  string;
   value: string;
+  data?: unknown[];
   config?: Config;
 }
 
